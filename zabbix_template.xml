@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>4.0</version>
-    <date>2020-03-13T18:17:18Z</date>
+    <version>5.0</version>
+    <date>2020-11-02T01:59:48Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -10,7 +10,7 @@
     <templates>
         <template>
             <template>Template - Covid19</template>
-            <name>Coronavirus - Covid19 monitoring</name>
+            <name>Coronavirus - Covid19 Monitoring</name>
             <description>Getting cases from worldometers.info and plotting on Zabbix</description>
             <groups>
                 <group>
@@ -19,1344 +19,470 @@
             </groups>
             <applications>
                 <application>
-                    <name>COVID19 General Info</name>
+                    <name>Covid19 Data</name>
                 </application>
                 <application>
-                    <name>Covid Data</name>
+                    <name>Covid19 General Info</name>
                 </application>
             </applications>
             <items>
                 <item>
-                    <name>Covid 19 - Total of Active Cases</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total of Active Cases</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[ActiveCases]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:'].ActiveCases</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 - Total  Cases per 1M habitants</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total  Cases per 1M habitants</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[CasesperMillion]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:']['Tot Cases/1M pop']</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 - Total of New Cases</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total of New Cases</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[NewCases]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:'].NewCases</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 - Total of New Deaths</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total of New Deaths</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[NewDeaths]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:'].NewDeaths</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 - Total of Serious,Critical Cases</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total of Serious,Critical Cases</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[Serious]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:']['Serious,Critical']</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 - Total Cases</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total Cases</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[TotalCases]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:'].TotalCases</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 - Total of Deaths</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total of Deaths</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[TotalDeaths]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:'].TotalDeaths</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 - Total Recovered</name>
-                    <type>18</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Total Recovered</name>
+                    <type>DEPENDENT</type>
                     <key>covid19.data[TotalRecovered]</key>
                     <delay>0</delay>
                     <history>30d</history>
-                    <trends>365d</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>FLOAT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>12</type>
+                            <type>JSONPATH</type>
                             <params>$['Total:'].TotalRecovered</params>
                         </step>
                     </preprocessing>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                     <master_item>
                         <key>covid19_status.py</key>
                     </master_item>
                 </item>
                 <item>
-                    <name>Covid 19 Full Info</name>
-                    <type>10</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 Full Info</name>
+                    <type>EXTERNAL</type>
                     <key>covid19_status.py</key>
-                    <delay>30m</delay>
+                    <delay>60m</delay>
                     <history>1d</history>
                     <trends>0</trends>
-                    <status>0</status>
-                    <value_type>4</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
+                    <value_type>TEXT</value_type>
                     <applications>
                         <application>
-                            <name>COVID19 General Info</name>
+                            <name>Covid19 General Info</name>
                         </application>
                     </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                    <preprocessing/>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <output_format>0</output_format>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
-                    <master_item/>
                 </item>
             </items>
             <discovery_rules>
                 <discovery_rule>
-                    <name>COVID19 - Affected Countries</name>
-                    <type>10</type>
-                    <snmp_community/>
-                    <snmp_oid/>
+                    <name>Covid19 - Selected Countries</name>
+                    <type>EXTERNAL</type>
                     <key>covid19_affectedcountries.py</key>
                     <delay>1h</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
                     <lifetime>0d</lifetime>
-                    <description/>
                     <item_prototypes>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - ActiveCases</name>
-                            <type>18</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[ActiveCases, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>DEPENDENT</type>
+                            <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, ActiveCases]</key>
                             <delay>0</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>12</type>
-                                    <params>$['{#COUNTRY_NAME}'].ActiveCases</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$['{#COUNTRY_NAME}'].ActiveCases</params>
+                                </step>
+                            </preprocessing>
                             <master_item>
                                 <key>covid19_status.py</key>
                             </master_item>
                         </item_prototype>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - Cases per Million habitants</name>
-                            <type>18</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[CasesperMillion, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>DEPENDENT</type>
+                            <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, CasesperMillion]</key>
                             <delay>0</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>12</type>
-                                    <params>$['{#COUNTRY_NAME}']['Tot Cases/1M pop']</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$['{#COUNTRY_NAME}']['Tot Cases/1M pop']</params>
+                                </step>
+                            </preprocessing>
                             <master_item>
                                 <key>covid19_status.py</key>
                             </master_item>
                         </item_prototype>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - NewCases</name>
-                            <type>18</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[NewCases, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>DEPENDENT</type>
+                            <key>covid19.data[ &quot;{#COUNTRY_NAME}&quot;, NewCases]</key>
                             <delay>0</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>12</type>
-                                    <params>$['{#COUNTRY_NAME}'].NewCases</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$['{#COUNTRY_NAME}'].NewCases</params>
+                                </step>
+                            </preprocessing>
                             <master_item>
                                 <key>covid19_status.py</key>
                             </master_item>
                         </item_prototype>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - NewDeaths</name>
-                            <type>18</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[NewDeaths, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>DEPENDENT</type>
+                            <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, NewDeaths]</key>
                             <delay>0</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>12</type>
-                                    <params>$['{#COUNTRY_NAME}'].NewDeaths</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$['{#COUNTRY_NAME}'].NewDeaths</params>
+                                </step>
+                            </preprocessing>
                             <master_item>
                                 <key>covid19_status.py</key>
                             </master_item>
                         </item_prototype>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - Serious,Critical</name>
-                            <type>18</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[Serious, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>DEPENDENT</type>
+                            <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, Serious]</key>
                             <delay>0</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>12</type>
-                                    <params>$['{#COUNTRY_NAME}']['Serious,Critical']</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$['{#COUNTRY_NAME}']['Serious,Critical']</params>
+                                </step>
+                            </preprocessing>
                             <master_item>
                                 <key>covid19_status.py</key>
                             </master_item>
                         </item_prototype>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - TotalCases</name>
-                            <type>15</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[TotalCases, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>CALCULATED</type>
+                            <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, TotalCases]</key>
                             <delay>30m</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params>last(&quot;covid19.data[ActiveCases, \&quot;{#COUNTRY_NAME}\&quot;]&quot;) + last(&quot;covid19.data[TotalDeaths, \&quot;{#COUNTRY_NAME}\&quot;]&quot;) + last(&quot;covid19.data[TotalRecovered, \&quot;{#COUNTRY_NAME}\&quot;]&quot;)</params>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing/>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
+                            <params>last(&quot;covid19.data[\&quot;{#COUNTRY_NAME}\&quot;, ActiveCases]&quot;) + last(&quot;covid19.data[\&quot;{#COUNTRY_NAME}\&quot;, TotalDeaths]&quot;) + last(&quot;covid19.data[\&quot;{#COUNTRY_NAME}\&quot;, TotalRecovered]&quot;)</params>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
-                            <master_item/>
                         </item_prototype>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - TotalDeaths</name>
-                            <type>18</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[TotalDeaths, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>DEPENDENT</type>
+                            <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, TotalDeaths]</key>
                             <delay>0</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>12</type>
-                                    <params>$['{#COUNTRY_NAME}'].TotalDeaths</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$['{#COUNTRY_NAME}'].TotalDeaths</params>
+                                </step>
+                            </preprocessing>
                             <master_item>
                                 <key>covid19_status.py</key>
                             </master_item>
                         </item_prototype>
                         <item_prototype>
                             <name>[ {#COUNTRY_NAME} | {#COUNTRY_IBAN} ] - TotalRecovered</name>
-                            <type>18</type>
-                            <snmp_community/>
-                            <snmp_oid/>
-                            <key>covid19.data[TotalRecovered, &quot;{#COUNTRY_NAME}&quot;]</key>
+                            <type>DEPENDENT</type>
+                            <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, TotalRecovered]</key>
                             <delay>0</delay>
-                            <history>90d</history>
-                            <trends>365d</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Covid Data</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <preprocessing>
-                                <step>
-                                    <type>12</type>
-                                    <params>$['{#COUNTRY_NAME}'].TotalRecovered</params>
-                                </step>
-                            </preprocessing>
-                            <jmx_endpoint/>
-                            <timeout>3s</timeout>
-                            <url/>
-                            <query_fields/>
-                            <posts/>
-                            <status_codes>200</status_codes>
-                            <follow_redirects>1</follow_redirects>
-                            <post_type>0</post_type>
-                            <http_proxy/>
-                            <headers/>
-                            <retrieve_mode>0</retrieve_mode>
-                            <request_method>0</request_method>
-                            <output_format>0</output_format>
-                            <allow_traps>0</allow_traps>
-                            <ssl_cert_file/>
-                            <ssl_key_file/>
-                            <ssl_key_password/>
-                            <verify_peer>0</verify_peer>
-                            <verify_host>0</verify_host>
+                            <value_type>FLOAT</value_type>
                             <application_prototypes>
                                 <application_prototype>
                                     <name>Country Data: {#COUNTRY_NAME}</name>
                                 </application_prototype>
                             </application_prototypes>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$['{#COUNTRY_NAME}'].TotalRecovered</params>
+                                </step>
+                            </preprocessing>
                             <master_item>
                                 <key>covid19_status.py</key>
                             </master_item>
                         </item_prototype>
                     </item_prototypes>
-                    <trigger_prototypes/>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>Covid 9 per Country [ {#COUNTRY_NAME} ]</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
+                            <name>Covid19 Per Country [ {#COUNTRY_NAME} ]</name>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>F230E0</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Template - Covid19</host>
-                                        <key>covid19.data[ActiveCases, &quot;{#COUNTRY_NAME}&quot;]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>2774A4</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
+                                    <color>F230E0</color>
                                     <item>
                                         <host>Template - Covid19</host>
-                                        <key>covid19.data[NewCases, &quot;{#COUNTRY_NAME}&quot;]</key>
+                                        <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, ActiveCases]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
                                     <sortorder>2</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>A54F10</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
+                                    <color>2774A4</color>
                                     <item>
                                         <host>Template - Covid19</host>
-                                        <key>covid19.data[NewDeaths, &quot;{#COUNTRY_NAME}&quot;]</key>
+                                        <key>covid19.data[ &quot;{#COUNTRY_NAME}&quot;, NewCases]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <color>A54F10</color>
+                                    <item>
+                                        <host>Template - Covid19</host>
+                                        <key>covid19.data[&quot;{#COUNTRY_NAME}&quot;, NewDeaths]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
-                    <host_prototypes/>
-                    <jmx_endpoint/>
-                    <timeout>3s</timeout>
-                    <url/>
-                    <query_fields/>
-                    <posts/>
-                    <status_codes>200</status_codes>
-                    <follow_redirects>1</follow_redirects>
-                    <post_type>0</post_type>
-                    <http_proxy/>
-                    <headers/>
-                    <retrieve_mode>0</retrieve_mode>
-                    <request_method>0</request_method>
-                    <allow_traps>0</allow_traps>
-                    <ssl_cert_file/>
-                    <ssl_key_file/>
-                    <ssl_key_password/>
-                    <verify_peer>0</verify_peer>
-                    <verify_host>0</verify_host>
                 </discovery_rule>
             </discovery_rules>
-            <httptests/>
-            <macros/>
-            <templates/>
-            <screens/>
+            <screens>
+                <screen>
+                    <name>Covid19 - Total Cases</name>
+                    <hsize>1</hsize>
+                    <vsize>1</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>Covid19 - Total Cases</name>
+                                <host>Template - Covid19</host>
+                            </resource>
+                            <width>900</width>
+                            <height>250</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+            </screens>
         </template>
     </templates>
     <graphs>
         <graph>
-            <name>Covid 9 - Total Cases</name>
-            <width>900</width>
-            <height>200</height>
-            <yaxismin>0.0000</yaxismin>
-            <yaxismax>100.0000</yaxismax>
-            <show_work_period>1</show_work_period>
-            <show_triggers>1</show_triggers>
-            <type>0</type>
-            <show_legend>1</show_legend>
-            <show_3d>0</show_3d>
-            <percent_left>0.0000</percent_left>
-            <percent_right>0.0000</percent_right>
-            <ymin_type_1>0</ymin_type_1>
-            <ymax_type_1>0</ymax_type_1>
-            <ymin_item_1>0</ymin_item_1>
-            <ymax_item_1>0</ymax_item_1>
+            <name>Covid19 - Total Cases</name>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
+                    <sortorder>1</sortorder>
                     <color>1A7C11</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
                     <item>
                         <host>Template - Covid19</host>
                         <key>covid19.data[ActiveCases]</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>0</drawtype>
+                    <sortorder>2</sortorder>
                     <color>F63100</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
                     <item>
                         <host>Template - Covid19</host>
                         <key>covid19.data[TotalDeaths]</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
+                    <sortorder>3</sortorder>
                     <color>2774A4</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
                     <item>
                         <host>Template - Covid19</host>
                         <key>covid19.data[Serious]</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
+                    <sortorder>4</sortorder>
                     <color>A54F10</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
                     <item>
                         <host>Template - Covid19</host>
                         <key>covid19.data[TotalRecovered]</key>
